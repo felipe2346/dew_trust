@@ -11,7 +11,7 @@ def home(request):
         else:
             return redirect('customer:customer_dashboard')
     context = {}
-    return render(request, 'frontend/index2.html', context)
+    return render(request, 'frontend/index.html', context)
 
 
 def contact_us(request):
