@@ -1,0 +1,95 @@
+{% extends '../account_base.html' %}
+
+{% load static %}
+
+
+
+{% block content %}
+<main>
+	{% include '../included/translate.html' %}
+	<div class="container py-5">
+		<div class="row align-item-center justify-content-center">
+			<div class="col-md-9">
+				<form method="POST">
+					{% csrf_token %}
+					<div class="card shadow-lg">
+						<h4 class="text-center text-white bg-primary py-3">Update Your Account Informations</h4>
+						{% if messages %}
+						{% for message in messages %}
+						<div class="alert alert-primary alert-dismissible fade show" role="alert">
+						 {% if message.tags %} <strong>{{ message.tags }}</strong>{% endif %}{{message}}
+						  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+						{% endfor %}
+						{% endif %}
+						<div class="card-body">
+							{{ form.non_field_errors }}
+							<div class="row">
+								<div class="col-md-4">
+									<div class="mb-3">
+									  {{ form.email.errors }}
+									  <label for="{{ form.email.id_for_label }}" class="form-label fw-bold">Email Address:</label>
+									  {{ form.email }}
+									</div>
+								</div>
+
+								<div class="col-md-4">
+									<div class="mb-3">
+									  {{ form.first_name.errors }}
+									  <label for="{{ form.first_name.id_for_label }}" class="form-label fw-bold">First Name:</label>
+									  {{ form.first_name }}
+									</div>
+								</div>
+
+								<div class="col-md-4">
+									<div class="mb-3">
+									  {{ form.last_name.errors }}	
+									  <label for="{{ form.last_name.id_for_label }}" class="form-label fw-bold">Last Name:</label>
+									  {{ form.last_name }}
+									</div>
+								</div>
+
+							</div>
+							<hr>
+
+							<div class="row">
+								<div class="col-md-4">
+									<div class="mb-3">
+										{{ form.title.errors }}
+									  <label for="{{ form.title.id_for_label }}" class="form-label fw-bold">Title:</label>
+									  {{ form.title }}
+									</div>
+								</div>
+
+								<div class="col-md-4">
+									<div class="mb-3">
+									  {{ form.gender.errors }}
+									  <label for="{{ form.gender.id_for_label }}" class="form-label fw-bold">Gender:</label>
+									  {{ form.gender }}
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="mb-3">
+										{{ form.birth_date.errors }}
+									  <label for="{{ form.birthdate.id_for_label }}" class="form-label fw-bold">Birthdate:</label>
+									  {{ form.birth_date }}
+								      <!-- <div id="{{ form.birthdate.id_for_label }}" class="form-text">( eg. 2022-11-16) </div> -->
+
+									</div>
+								</div>
+							</div>
+
+							<hr>							
+							<input type="submit" value="Update Now" class="btn btn-primary w-50 fw-bold float-end">
+							<a href="{% url 'customer:customer_dashboard' %}" class="btn btn-danger float-end mx-4 fw-bold">Cancel</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		
+	</div>
+</main>
+{% endblock %}
+

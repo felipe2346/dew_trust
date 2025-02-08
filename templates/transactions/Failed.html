@@ -1,0 +1,23 @@
+{% extends '../account/customer2/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="other_content">
+	<div class="container py-5">
+		<div class="row align-item-cnter justify-content-center pt-5">
+			<div class="col-md-6">
+				<div class="card">
+					<h3 class="text-center text-danger py-4">Transaction Failed</h3>
+					<hr>
+					<p class="px-5 lead fw-bold">Dear <strong>{{request.user.first_name}} {{request.user.last_name}},</strong></p>
+					<hr>
+					<p class="px-5"><strong>Your Transaction Failed. Please try again or contact us for more information</strong></p>
+					<hr>
+					<a href="{% url 'customer:customer_dashboard' %}" class="btn btn-info fw-bold w-100 text-white"><i class="fa-solid fa-arrow-left"></i> Go back to Dashboard</a>
+				</div>		
+			</div>		
+		</div>
+	</div>
+</div>
+{% endblock %}

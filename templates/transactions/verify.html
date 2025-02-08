@@ -1,0 +1,42 @@
+{% extends '../account/customer2/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="other_content">
+	<div class="container py-5">
+		<div class="row align-item-cnter justify-content-center py-5">
+			<div class="col-md-5">
+				<div class="card bg-info text-white shadow-lg">
+					<h4 class="text-center text-secondary my-5 mx-3">Verify {{required_code}} Code</h4>
+					{% if messages %}
+						{% for message in messages %}
+						<div class="alert alert-primary alert-dismissible fade show" role="alert">
+						{% if message.tags %} <strong>{{ message.tags }}</strong>{% endif %}{{message}}
+						<button type="button" name="tran-code" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+						{% endfor %}
+					{% endif %}
+					<center>
+						<p class="fw-bold px-4 text-dark">Please enter your {{required_code}} code to conitnue.You can contact us if you don't have your {{required_code}} code yet.</p>
+						<div class="spinner-grow text-secondary mb-3" role="status">
+						<span class="visually-hidden">Loading...</span>
+						</div>
+					</center>
+					<div class="card-body">
+						<form method="POST">
+						{% csrf_token %}						
+							<div class="mb-3">
+							<label for="otp-code" class="form-label fw-bold">Enter {{required_code}} Code Here </label>
+							<input type="text" name="trans-code" class="form-control" id="otp-code">
+							</div>
+
+							<input type="submit" class="btn btn-warning fw-bold text-white w-100 my-3" Value="Confirm Code">
+						</form>
+					</div>
+				</div>		
+			</div>		
+		</div>
+	</div>
+</div>
+{% endblock %}

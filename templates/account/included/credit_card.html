@@ -1,0 +1,115 @@
+{% load static %}
+
+<div class="container pt-4">
+    <div class="row">
+      <div class="col-md-5 mb-5">
+        <div class="my-card">
+          <div class="card-inner">
+            <!-- front card -->
+              <div class="front">
+                <img src="{% static 'images/map.png' %}" class="map-img">
+                  <div class="my-row">
+                      <img src="{% static 'images/chip.png' %}" width="40px">
+                      <img src="{% static 'images/visa.png' %}" width="60px">
+                  </div>
+                  <div class="my-row card-no">
+                    <p>5675</p>
+                    <p>xxxx</p>
+                    <p>x0x0</p>
+                    <p>xxx5</p>
+                  </div>
+                  <div class="my-row card-holder mb-0">
+                    <p>CARD HOLDER</p>
+                    <P>VALID DATE</P>
+                  </div>
+                  <div class="my-row name-info">
+                    <p>{{request.user.first_name}} {{request.user.last_name}}</p>
+                    <p>11 / 28</p>
+                  </div>
+              </div>
+
+              <!-- back card -->
+              <div class="back">
+                <img src="{% static 'images/map.png' %}" class="map-img">
+                <div class="bar-dark"></div>
+                <div class="my-row card-cvv">
+                  <div>
+                    <img src="{% static 'images/pattern.png' %}" alt="">
+                  </div>
+                  <p>398</p>
+                </div>
+                <div class="my-row card-text">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio odit ea id eligendi ipsam distinctio, molestias quos enim aperiam deserunt deleniti doloremque os.</p>
+                </div>
+                <div class="my-row customer-signature">
+                  <p>CUSTOMER SIGNATURE</p>
+                  <img src="{% static 'images/visa.png' %}" width="60px">
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-md-5">
+        <div class="my-card">
+          <div class="card-inner">
+            <!-- front card -->
+              <div class="front">
+                <img src="{% static 'images/map.png' %}" class="map-img">
+                  <div class="my-row">
+                      <img src="{% static 'images/chip.png' %}" width="40px">
+                      <img src="{% static 'images/visa.png' %}" width="60px">
+                  </div>
+                  <div class="my-row card-no">
+                    <p>ACC. #: {{request.user.account.account_no}}</p>
+                    <!-- <p>1234</p>
+                    <p>8875</p>
+                    <p>7875</p> -->
+                  </div>
+                  <div class="my-row card-holder mb-0">
+                    <p>CARD HOLDER</p>
+                    <P>VALID DATE</P>
+                  </div>
+                  <div class="my-row name-info">
+                    <p>{{request.user.first_name}} {{request.user.last_name}}</p>
+                    <p>0 / 0</p>
+                  </div>
+              </div>
+
+              <!-- back card -->
+              <div class="back">
+                <img src="{% static 'images/map.png' %}" class="map-img">
+                <div class="bar-dark"></div>
+                <div class="my-row card-cvv">
+                  <div>
+                    <img src="{% static 'images/pattern.png' %}" alt="">
+                  </div>
+                  <p>398</p>
+                </div>
+                <div class="my-row card-text">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio odit ea id eligendi ipsam distinctio, molestias quos enim aperiam deserunt deleniti doloremque os.</p>
+                </div>
+                <div class="my-row customer-signature">
+                  <p>CUSTOMER SIGNATURE</p>
+                  <img src="{% static 'images/visa.png' %}" width="60px">
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-md-4">
+        <div class="my-card">
+          <div class="card-inner">
+              <div class="front">
+                <img src="img/map.png' %}" class="map-img">
+                  <div class="my-row">
+                      <img src="img/chip.png" width="60px">
+                      <img src="img/visa.png" width="80px">
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+      
+  </div>

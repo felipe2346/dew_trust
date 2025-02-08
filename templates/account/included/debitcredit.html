@@ -1,0 +1,20 @@
+{% if request.user.is_staff %}
+<div class="container pt-3 px-1 px-md-2">
+	<div class="card">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table">
+				  <thead>
+				    <tr>
+				      <th scope="col"><a href="{% url 'transaction:deposit_money' %}" class="btn btn-success btn-sm fw-bold">Credit Account</a></th>
+				      <th scope="col"><a href="{% url 'transaction:withdraw_money' %}" class="btn btn-warning btn-sm fw-bold">Debit Account</a></th>
+				      <th scope="col"><a href="{% url 'account:required_code' %}" class="btn btn-primary btn-sm fw-bold">Required Code</a></th>
+				      <th scope="col"><a href="{% url 'account:required_code' %}" class="btn btn-primary btn-sm fw-bold">Generate Code</a></th>
+				    </tr>
+				  </thead>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}

@@ -1,0 +1,242 @@
+{% load static %}
+
+<!--Start footer area -->
+<footer class="footer-area">
+    <div class="shape-top float-bob-x"></div>
+    <div class="shape-bottom wow slideInRight" data-wow-delay="100ms" data-wow-duration="3000ms"></div>
+    <div class="footer-area-bg" style="background-image: url(/static/frontend2/images/footer-area-bg.png);"></div>
+    <div class="footer-top">
+        <div class="container">
+
+            <div class="footer-top__inner">
+                <div class="footer-logo-style1">
+                    <a href="index.html">
+                        <img src="{% static 'frontend2/images/new-logo1.png' %}" alt="Awesome Logo" title="">
+                    </a>
+                </div>
+                <div class="footer-top__text-box">
+                    <p>Our aim is to reduce our negative social, economic and environmental footprints while enhancing the overall value we create as a leading brand.</p>
+                </div>
+                <!-- <div class="footer-top__app-download">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <span class="icon-apple-logo"></span>
+                                App Store
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon-playstore"></span>
+                                Google Play
+                            </a>
+                        </li>
+                    </ul>
+                </div> -->
+            </div>
+
+            <div class="footer-top__outer">
+                <ul class="row">
+                    <li class="col-xl-4 col-lg-4">
+                        <div class="single-box">
+                            <a href="{% url 'frontend:contact_us' %}">
+                                Register Your Complaint
+                                <span class="icon-complain"></span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="col-xl-4 col-lg-4">
+                        <div class="single-box active">
+                            <a href="{% url 'account:registration' %}">
+                                Get Started Now
+                                <span class="icon-calc"></span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="col-xl-4 col-lg-4">
+                        <div class="single-box">
+                            <a href="{% url 'account:login' %}">
+                                Sign In Now
+                                <span class="icon-download"></span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Start Footer Main-->
+    <div class="footer-main">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="footer-widget-contact-info">
+                        <h3>Contact</h3>
+                        <div class="phone-number">
+                            <p>Phone Online 24/7</p>
+                            <a href="tel:+17047277123">+1 (704) 727 7123</a>
+                            <!-- <a href="tel:2512353256">+1 (717) 473 8336</a> -->
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="icon">
+                                    <span class="icon-email"></span>
+                                </div>
+                                <p><a href="mailto:contact@rosano.com">contact@pinnacleonlinetb.com</a></p>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <span class="icon-pin"></span>
+                                </div>
+                                <p>805 Broklyn Garden, Alexaz Duo<br> New York. USA 33660</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-lg-6 col-md-6 single-widget">
+                    <div class="single-footer-widget single-footer-widget--link-box margin-left">
+                        <div class="title">
+                            <h3>Services</h3>
+                        </div>
+                        <div class="footer-widget-links">
+                            <ul>
+                                <li>
+                                    <a href="/">Mobile Service</a>
+                                </li>
+                                <li class="active">
+                                    <a href="{% url 'frontend:about_us' %}">Business Plans</a>
+                                </li>
+                                <li>
+                                    <a href="/">Offers</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'frontend:loan_home' %}">Loan</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/">News</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Start single footer widget-->
+                <div class="col-xl-3 col-lg-6 col-md-6 single-widget">
+                    <div class="single-footer-widget single-footer-widget--link-box margin-left-minus2">
+                        <div class="title">
+                            <h3>About Us</h3>
+                        </div>
+                        <div class="footer-widget-links">
+                            <ul>
+                                <li>
+                                    <a href="{% url 'frontend:about_us' %}">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'frontend:contact_us' %}">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="/">Careers</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'frontend:about_us' %}">Business</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="{% url 'frontend:loan_home' %}">BussinesLoan</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--End single footer widget-->
+
+                <!--Start single footer widget-->
+                <div class="col-xl-3 col-lg-6 col-md-6 single-widget">
+                    <div class="single-footer-widget margin-left-minus3">
+                        <div class="title">
+                            <h3>Opening hours</h3>
+                        </div>
+                        <div class="opening-hours-box">
+                            <ul>
+                                <li>
+                                    <span>Monday</span>
+                                    <span>9 am - 5 pm</span>
+                                </li>
+                                <li>
+                                    <span>Tuesday</span>
+                                    <span>9 am - 5 pm</span>
+                                </li>
+                                <li>
+                                    <span>Monday</span>
+                                    <span>9 am - 5 pm</span>
+                                </li>
+                                <li>
+                                    <span>Monday</span>
+                                    <span>9 am - 5 pm</span>
+                                </li>
+                                <li>
+                                    <span>Monday</span>
+                                    <span>9 am - 5 pm</span>
+                                </li>
+                                <li>
+                                    <span>Saturday - Sunday</span>
+                                    <span>Closed</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--End single footer widget-->
+
+            </div>
+        </div>
+    </div>
+    <!--End Footer Main-->
+
+    <!--Start Footer Bottom-->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="bottom-inner">
+                <div class="copyright-text">
+                    <p>
+                        Copyright © 2023
+                        <a href="/">Pinnacleonlinetb.com</a>. All Rights Reserved.
+                    </p>
+                </div>
+
+                <!-- <div class="footer-social-link">
+                    <ul class="clearfix">
+                        <li>
+                            <a href="#">
+                                <i class="icon-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-youtube"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+    <!--End Footer Bottom-->
+</footer>
+<!--End footer area-->

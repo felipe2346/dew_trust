@@ -1,0 +1,49 @@
+{% load static %}
+<!--Start Currency Box-->
+<section class="currency-exchange-rates">
+    <div class="container">
+        <div class="currency-exchange-rates__inner">
+            <div class="inner-title">
+                <h4>Foreign Exchange Rates</h4>
+            </div><!-- /.inner-title -->
+            <marquee id="exchange-rates" behavior="scroll" direction="left" scrolldelay="10">
+                <span onmouseover="document.getElementById('exchange-rates').stop();" onmouseout="document.getElementById('exchange-rates').start();">
+                    <ul>
+                        <li>
+                            <span class="flag">
+                                <img src="{% static 'frontend2/images/flag-1.png' %}" alt="">
+                            </span>
+                            <p>USD $ : Buy 201.55 | Sell: 205.33</p>
+                        </li>
+                        <li>
+                            <span class="flag">
+                                <img src="{% static 'frontend2/images/flag-2.png' %}" alt="">
+                            </span>
+                            <p>GBP £ : Buy 201.55 | Sell: 205.33</p>
+                        </li>
+                        <li>
+                            <span class="flag">
+                                <img src="{% static 'frontend2/images/flag-3.png' %}" alt="">
+                            </span>
+                            <p>JPY ¥ : Buy 201.55 | Sell: 205.33</p>
+                        </li>
+                        <li>
+                            <span class="flag">
+                                <img src="{% static 'frontend2/images/flag-4.png' %}" alt="">
+                            </span>
+                            <p>CAD $ : Buy 201.55 | Sell: 205.33</p>
+                        </li>
+                        <li>
+                            <span class="flag">
+                                <img src="{% static 'frontend2/images/flag-1.png' %}" alt="">
+                            </span>
+                            <p>USD $ : Buy 201.55 | Sell: 205.33</p>
+                        </li>
+                    </ul>
+
+                </span>
+            </marquee>
+        </div>
+    </div>
+</section>
+<!--End Currency Box-->

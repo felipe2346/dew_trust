@@ -1,0 +1,58 @@
+{% load humanize %}
+{% load static %}
+
+<div class="container py-2">
+    <div class="row text-white">
+        <div class="col-md-4 mb-3 mb-md-0">
+            <div class="card shadow bg-success">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="part-1">
+                            <p class="card-title fw-bold">
+                                Account Balance: <br> {{request.user.account.currency}}{{request.user.account.balance|intcomma}} 
+                            </p>
+                            <p class="fw-bold">{{gross_credit_percent}}% since {{request.user.last_login}}</p>
+                        </div>
+                        <div class="part-2">
+                            <img src="{% static 'images/stack_cash.png' %}"class="img-fluid" style="width: 130px;">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3 mb-md-0">
+            <div class="card shadow bg-primary">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="part-1">
+                            <p class="card-title fw-bold">
+                                Ledger Balance: <br> {{request.user.account.currency}}{{ledger_balance|intcomma}} 
+                            </p>
+                            <p class="fw-bold">{{debit_percent}}% since {{request.user.last_login}}</p>
+                        </div>
+                        <div class="part-2">
+                            <img src="{% static 'images/bbuilding.png' %}"class="img-fluid" style="width: 130px;">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow bg-danger">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="part-1">
+                            <p class="card-title fw-bold">
+                                Transfer Mode
+                            </p>
+                            <h3>WIRE</h3>
+                            <p class="fw-bold">{{gross_debit_percent}}% since {{request.user.last_login}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

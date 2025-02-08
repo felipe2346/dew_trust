@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Step Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .form-section {
+      display: none;
+    }
+    .form-section.active {
+      display: block;
+    }
+    .form-navigation {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Multi-Step Form</h1>
+  <form id="multiStepForm">
+    <!-- Section 1 -->
+    <div class="form-section active" data-step="1">
+      <label for="input1">Input 1</label>
+      <input type="text" id="input1" name="input1" required><br>
+      <label for="input2">Input 2</label>
+      <input type="text" id="input2" name="input2" required><br>
+      <label for="input3">Input 3</label>
+      <input type="text" id="input3" name="input3" required>
+    </div>
+    <!-- Section 2 -->
+    <div class="form-section" data-step="2">
+      <label for="input4">Input 4</label>
+      <input type="text" id="input4" name="input4" required><br>
+      <label for="input5">Input 5</label>
+      <input type="text" id="input5" name="input5" required><br>
+      <label for="input6">Input 6</label>
+      <input type="text" id="input6" name="input6" required>
+    </div>
+    <!-- Section 3 -->
+    <div class="form-section" data-step="3">
+      <label for="input7">Input 7</label>
+      <input type="text" id="input7" name="input7" required><br>
+      <label for="input8">Input 8</label>
+      <input type="text" id="input8" name="input8" required><br>
+      <label for="input9">Input 9</label>
+      <input type="text" id="input9" name="input9" required>
+    </div>
+
+    <div class="form-navigation">
+      <button type="button" id="prevButton" disabled>Previous</button>
+      <button type="button" id="nextButton">Next</button>
+      <button type="submit" id="submitButton" style="display: none;">Submit</button>
+    </div>
+  </form>
+
+  <script>
+    const formSections = document.querySelectorAll('.form-section');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+    const submitButton = document.getElementById('submitButton');
+    let currentStep = 1;
+
+    function showStep(step) {
+      formSections.forEach(section => {
+        section.classList.remove('active');
+        if (parseInt(section.dataset.step, 10) === step) {
+          section.classList.add('active');
+        }
+      });
+
+      prevButton.disabled = step === 1;
+      nextButton.style.display = step === formSections.length ? 'none' : 'inline-block';
+      submitButton.style.display = step === formSections.length ? 'inline-block' : 'none';
+    }
+
+    function validateStep(step) {
+      const currentSection = document.querySelector(`.form-section[data-step="${step}"]`);
+      const inputs = currentSection.querySelectorAll('input');
+      for (const input of inputs) {
+        if (!input.value.trim()) {
+          return false; // If any input is empty, the step is invalid
+        }
+      }
+      return true; // All inputs are filled
+    }
+
+    prevButton.addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    });
+
+    nextButton.addEventListener('click', () => {
+      if (validateStep(currentStep)) {
+        if (currentStep < formSections.length) {
+          currentStep++;
+          showStep(currentStep);
+        }
+      } else {
+        alert('Please fill in all fields before proceeding.');
+      }
+    });
+
+    document.getElementById('multiStepForm').addEventListener('submit', event => {
+      event.preventDefault();
+      alert('Form submitted successfully!');
+    });
+  </script>
+</body>
+</html>

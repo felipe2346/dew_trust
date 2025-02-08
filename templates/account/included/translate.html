@@ -1,0 +1,165 @@
+
+
+{% if request.user.is_staff == False %}
+<style>
+	@keyframes loges-slide {
+		from{
+			transform: translateX(0);
+		}
+		to{
+			transform: translateX(-100%);
+		}
+	}
+
+	.customer_icon{
+		overflow: hidden;
+		padding: 20px 0;
+		background: white;
+		white-space: nowrap;
+	}
+	.customer_icon_slide .icon{
+		margin: 0 30px;
+	}
+	.customer_icon_slide{
+		display: flex;
+		animation: 20s loges-slide infinite linear;
+	}
+</style>
+
+
+<div class="container pt-3 d-none d-md-block">
+	<div class="customer_icon">
+		<div class="customer_icon_slide">
+			<div class="icon">
+				<center>
+					<i class="fa fa-calendar-check-o fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Checking</p>
+			</div>
+			<div class="icon">
+				<center>
+					<i class="fa fa-credit-card-alt fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Credit Card</p>
+			</div>
+			<div class="icon">
+				<center>
+					<i class="fa fa-briefcase fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Savings & CDs</p>
+			</div>
+			<div class="icon">
+				<center>
+					<i class="fa  fa-money fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Cash Back</p>
+			</div>
+			<div class="icon">
+				<center>
+					<i class="fa fa-newspaper-o fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Building Credit</p>
+			</div>
+			<div class="icon">
+				<center>
+					<i class="fa fa-calendar-check-o fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Checking</p>
+			</div>
+			<div class="icon">
+				<center>
+					<i class="fa fa-credit-card-alt fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Credit Card</p>
+			</div>
+			<div class="icon">
+				<center>
+					<i class="fa fa-briefcase fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Savings & CDs</p>
+			</div>
+			<div class="icon">
+				<center>
+					<i class="fa  fa-money fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Cash Back</p>
+			</div>
+			<div class="icon">
+				<center>
+					<i class="fa fa-newspaper-o fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Building Credit</p>
+			</div>
+			<div class="icon">
+				<center>
+					<i class="fa fa-calendar-check-o fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Checking</p>
+			</div>
+			<div class="icon">
+				<center>
+					<i class="fa fa-credit-card-alt fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Credit Card</p>
+			</div>
+			<div class="icon">
+				<center>
+					<i class="fa fa-briefcase fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Savings & CDs</p>
+			</div>
+			<div class="icon">
+				<center>
+					<i class="fa  fa-money fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Cash Back</p>
+			</div>
+			<div class="icon">
+				<center>
+					<i class="fa fa-newspaper-o fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Building Credit</p>
+			</div>
+		</div>
+	</div>
+	
+</div>
+{% endif %}
+
+
+<!-- <div class="card">
+	<div class="card-body pt-4">
+		<div class="row justify-content-center align-item-center">
+			<div class="col-2">
+				<center>
+					<i class="fa fa-calendar-check-o fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Checking</p>
+			</div>
+			<div class="col-2">
+				<center>
+					<i class="fa fa-credit-card-alt fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Credit Card</p>
+			</div>
+			<div class="col-2">
+				<center>
+					<i class="fa fa-briefcase fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Savings & CDs</p>
+			</div>
+			<div class="col-2">
+				<center>
+					<i class="fa  fa-money fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Cash Back</p>
+			</div>
+			<div class="col-2">
+				<center>
+					<i class="fa fa-newspaper-o fa-2xl" aria-hidden="true"></i>
+				</center>
+				<p class="text-center mt-2">Building Credit</p>
+			</div>
+		</div>
+	</div>
+</div> -->

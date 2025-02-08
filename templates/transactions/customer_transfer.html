@@ -1,0 +1,144 @@
+{% extends '../account/customer2/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+	.btn-primary{
+        background-color: #182978;
+        border-color: #182978;
+    }
+</style>
+<div class="other_content">
+	<div class="container py-5">
+		<div class="row align-item-center justify-content-center">
+			<div class="col-md-7">
+				<div class="card shadow-lg">
+					<h5 class="text-center text-white bg-primary py-1">Domestic WireTransfer</h5>
+					{% if messages %}
+						{% for message in messages %}
+						<div class="alert alert-primary alert-dismissible fade show" role="alert">
+						 {% if message.tags %} <strong>{{ message.tags }}</strong>{% endif %}{{message}}
+						  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+						{% endfor %}
+					{% endif %}
+					
+					<div class="card-body">
+						<form method="POST" action="."> 
+							{% csrf_token %}
+							{{ form.non_field_errors }}
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.beneficiary_bank.errors }}
+                                        <label for="{{ form.beneficiary_bank.id_for_label }}" class="form-label fw-bold">Receiver's Bank Name:</label>
+                                        {{ form.beneficiary_bank }}
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.beneficiary_account.errors }}
+                                        <label for="{{ form.beneficiary_account.id_for_label }}" class="form-label fw-bold">Receiver's Account Number:</label>
+                                        {{ form.beneficiary_account }}
+                                      </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.route_code.errors }}
+                                        <label for="{{ form.route_code.id_for_label }}" class="form-label fw-bold">Routine Number:</label>
+                                        {{ form.route_code }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.beneficiary_name.errors }}
+                                        <label for="{{ form.beneficiary_name.id_for_label }}" class="form-label fw-bold">Receiver's Name:</label>
+                                        {{ form.beneficiary_name }}
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.amount.errors }}
+                                        <label for="{{ form.amount.id_for_label }}" class="form-label fw-bold">Amount:</label>
+                                        {{ form.amount }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.beneficiary_address.errors }}
+                                        <label for="{{ form.beneficiary_address.id_for_label }}" class="form-label fw-bold">Receiver's Adress:</label>
+                                        {{ form.beneficiary_address }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.bank_address.errors }}
+                                        <label for="{{ form.bank_address.id_for_label }}" class="form-label fw-bold">Bank Address:</label>
+                                        {{ form.bank_address }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.transaction_date.errors }}
+                                        <label for="{{ form.transaction_date.id_for_label }}" class="form-label fw-bold">Date:</label>
+                                        {{ form.transaction_date }}
+                                    </div>
+                                </div>
+                            </div>
+							
+							<div class="mb-3">
+							  {{ form.description.errors }}
+							  <label for="{{ form.description.id_for_label }}" class="form-label fw-bold">Description:</label>
+							  {{ form.description }}
+							</div>
+                            <hr>
+                            <p class="text-muted">Wire Fee: $35</p>
+                            <hr>
+
+							<button type="submit" id="transfer-btn" class="btn btn-info fw-bold w-100 mt-4">Submit</button>							
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	jQuery(function ($) {
+		$(document).ajaxSend(function(){
+			$(".spinner-border").fadeIn(500);
+
+			var loading = `<div class="spinner-border spinner-border-sm"></div>&nbsp;&nbsp; connecting with beneficiary bank.......`
+				$("#transfer-btn").html(loading);
+		});	
+
+		$("#transfer-btn").click(function(){
+			$.ajax(function(){
+				type: 'GET'
+				success: function g(data){
+					console.log(data)
+				}
+			}).done(function(){
+				setTimeout(function(){
+					$("#transfer-btn").fadeOut(500);
+				}, 700);
+			});
+		});
+	});
+	
+</script>
+
+{% endblock %}

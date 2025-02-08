@@ -1,0 +1,109 @@
+{% load static %}
+<!-- <style>
+    .logo-box-style1 img{
+        width: 200px;
+    }
+</style> -->
+<header class="main-header main-header-style1">
+    <div class="main-header-style1__top">
+        <div class="container">
+            <div class="inner-content">
+
+                <div class="main-header-style1__top-left">
+                    <div class="header-menu-style1">
+                        <ul>
+                            <li><a href="{% url 'frontend:contact_us' %}">Contact Us</a></li>
+                            <li><a href="{% url 'frontend:location' %}">Our Locations</a></li>
+                            <!-- <li><a href="#">FAQ's</a></li>
+                            <li><a href="#">Media Center</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="main-header-style1__top-right">
+                    <div class="header-contact-info-style1">
+                        <h5>24/7 Support <a href="tel:12353256">+1 (717) 473 8557</a></h5>
+                    </div>
+                    <div class="box-search-style1">
+                        <a href="#" class="search-toggler">
+                            <span class="icon-magnifying-glass"></span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Start Main Menu Style1-->
+    <nav class="main-menu main-menu-style1">
+        <div class="main-menu__wrapper clearfix">
+            <div class="container">
+                <div class="main-menu__wrapper-inner">
+
+                    <div class="main-menu-style1-left">
+                        <div class="logo-box-style1">
+                            <a href="/">
+                                <img src="{% static 'frontend2/images/new-logo1.png' %}" alt="Awesome Logo" title="">
+                                <!-- <img src="{% static 'frontend2/images/logo-1.png' %}" alt="Awesome Logo" title=""> -->
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="main-menu-style1-middle">
+                        <div class="main-menu-box">
+                            <a href="#" class="mobile-nav__toggler">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                            <ul class="main-menu__list">
+                                <li class="dropdown">
+                                    <a href="{% url 'frontend:home' %}">Home</a>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="{% url 'frontend:about_us' %}">About Us</a>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="{% url 'frontend:location' %}">Location</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="{% url 'frontend:contact_us' %}">Contact</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'account:login' %}" class="d-sm-none">Login</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="main-menu-style1-right">
+                        <div class="header-btn-style1">
+                            <a class="btn-one btn-black" href="{% url 'account:login' %}">
+                                <span class="txt">
+                                    Login
+                                    <i class="icon-Vector"></i>
+                                </span>
+                            </a>
+                            <a class="btn-one" href="{% url 'account:registration' %}">
+                                <span class="txt">
+                                    Open an Account
+                                    <i class="icon-Vector"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--End Main Menu Style1-->
+</header>
+
+<div class="stricky-header stricked-menu main-menu">
+    <div class="sticky-header__content"></div>
+    <!-- /.sticky-header__content -->
+</div>
+<!-- /.stricky-header -->

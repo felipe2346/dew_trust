@@ -1,0 +1,41 @@
+{% extends '../account_base.html' %}
+
+{% load static %}
+
+
+
+{% block content %}
+<main>
+	{% include '../included/translate.html' %}
+	<div class="container py-5 ">
+		<div class="row align-item-center justify-content-center">
+			<div class="col-md-4">
+				<form method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="card shadow-lg">
+						<h3 class="text-center text-white py-3 bg-primary">Upload Profile Picture</h3>
+						{% if messages %}
+						{% for message in messages %}
+						<div class="alert alert-primary alert-dismissible fade show" role="alert">
+						 {% if message.tags %} <strong>{{ message.tags }}</strong>{% endif %}{{message}}
+						  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+						{% endfor %}
+						{% endif %}
+						<div class="card-body">
+							<hr>
+							{{form.as_p}}
+							<hr>							
+							<input type="submit" value="Upload" class="btn btn-primary w-100 fw-bold">
+							<!-- <a href="{% url 'account:account_holders' %}" class="btn btn-danger float-end mx-4 fw-bold">Cancel</a> -->
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		
+	</div>
+</main>
+{% endblock %}
+

@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinnacle Online Trans || A service you can trust</title>
+    <!-- Favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'frontend2/images/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'frontend2/images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'frontend2/images/favicon-16x16.png' %}">
+    <!-- <link rel="manifest" href="{% static 'frontend2/assets/images/favicons/site.webmanifest' %}"> -->
+    <meta name="description" content="PinnacleOnlineTrans">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'frontend2/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/custom-animate.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/jquery.bxslider.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/jquery.magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/odometer.min.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/swiper.min.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/vegas.min.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/polyglot-language-switcher.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/fancybox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/jarallax.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/slick.css' %}">
+
+    <!-- Module css -->
+    <link rel="stylesheet" href="{% static 'frontend2/css/01-header-section.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/02-banner-section.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/03-about-section.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/04-fact-counter-section.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/05-testimonial-section.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/06-partner-section.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/07-footer-section.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/08-blog-section.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/09-breadcrumb-section.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/10-contact.css' %}">
+
+    <!-- Template styles -->
+    <link rel="stylesheet" href="{% static 'frontend2/css/style_1.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend2/css/responsive.css' %}">
+
+
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div class="loader-wrap">
+        <div class="preloader">
+            <div id="handle-preloader" class="handle-preloader">
+                <div class="layer layer-one">
+                    <span class="overlay"></span>
+                </div>
+                <div class="layer layer-three">
+                    <span class="overlay"></span>
+                </div>
+                <div class="layer layer-two">
+                    <span class="overlay"></span>
+                </div>
+                <div class="animation-preloader">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- main content -->
+    {% include './include/navbar.html' %}
+    <div class="page-wrapper boxed_wrapper">
+        {% block content %}
+        {% endblock %}
+        {% include './include/footer.html' %}
+    </div>
+
+    <!-- mobile navbar start -->
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler">
+                <i class="fa fa-times-circle"></i>
+            </span>
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image">
+                    <img src="{% static 'frontend2/images/new-logo1.png' %}">
+                    <!-- <img src="images/mobile-nav-logo.png" alt=""> -->
+                </a>
+            </div>
+            <div class="mobile-nav-search-box">
+                <form class="search-form" action="#">
+                    <input placeholder="Search" type="text">
+                    <button type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="mobile-nav__container"></div>
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <a href="">contact@pinnacleonlinetb.com</a>
+                </li>
+                <li>
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="">+1 (704) 727 7123</a>
+                    <!-- <a href="">+1 (717) 473 8336</a> -->
+                </li>
+            </ul>
+            <!-- <div class="mobile-nav__social">
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-facebook-square"></a>
+                <a href="#" class="fab fa-pinterest-p"></a>
+                <a href="#" class="fab fa-instagram"></a>
+            </div> -->
+        </div>
+    </div>
+    <!-- mobile navbar end -->
+    
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">Go To Top</div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll to top End -->
+
+    <script src="{% static 'frontend2/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/jquery.bxslider.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/jquery.circleType.js' %}"></script>
+    <script src="{% static 'frontend2/js/jquery.lettering.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/isotope.js' %}"></script>
+    <script src="{% static 'frontend2/js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/jquery.appear.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/jquery-migrate.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'frontend2/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/odometer.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/swiper.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/vegas.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/wNumb.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/wow.js' %}"></script>
+    <script src="{% static 'frontend2/js/jquery.paroller.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/jquery.polyglot.language.switcher.js' %}"></script>
+    <script src="{% static 'frontend2/js/jquery-sidebar-content.js' %}"></script>
+    <script src="{% static 'frontend2/js/jquery.fancybox.js' %}"></script>
+    <script src="{% static 'frontend2/js/aos.js' %}"></script>
+    <script src="{% static 'frontend2/js/TweenMax.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/jarallax.min.js' %}"></script>
+    <script src="{% static 'frontend2/js/tilt.jquery.js' %}"></script>
+    <script src="{% static 'frontend2/js/slick.js' %}"></script>
+
+    <!-- Template js -->
+    <script src="{% static 'frontend2/js/custom.js' %}"></script>
+
+
+</body></html>

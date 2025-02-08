@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Three Progress Bars Inside a Card</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+
+      .card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 600px;
+        text-align: center;
+      }
+
+      .progress-container {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+        border-radius: 50%;
+        background: conic-gradient(#4caf50 0% 0%, #dcdcdc 0% 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .progress-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50%;
+        background: conic-gradient(#4caf50 0% 0%, #dcdcdc 0% 100%);
+      }
+
+      .loan-text {
+        margin-top: 130px;
+        font-size: 12px;
+        color: #030303;
+      }
+
+      .progress-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .percentage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Loan Status</h2>
+      <div class="progress-row">
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar-1"></div>
+          <div class="percentage" id="percentage-1">0%</div>
+          <div class="loan-text">Loan 1</div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar-2"></div>
+          <div class="percentage" id="percentage-2">0%</div>
+          <div class="loan-text">Loan 2</div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar-3"></div>
+          <div class="percentage" id="percentage-3">0%</div>
+          <div class="loan-text">Loan 3</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function updateProgressBar(percentage, id) {
+        const progressBar = document.getElementById(`progress-bar-${id}`);
+        const percentageDisplay = document.getElementById(`percentage-${id}`);
+
+        // Update the progress bar and percentage display
+        progressBar.style.background = `conic-gradient(#4caf50 ${percentage}% 0%, #dcdcdc ${percentage}% 100%)`;
+        percentageDisplay.textContent = `${percentage}%`;
+      }
+
+      // Example of how to update the progress for each loan
+      let percentage1 = 0,
+        percentage2 = 0,
+        percentage3 = 0;
+      const interval = setInterval(() => {
+        percentage1 += 5;
+        percentage2 += 3;
+        percentage3 += 7;
+
+        updateProgressBar(30, 1);
+        updateProgressBar(70, 2);
+        updateProgressBar(80, 3);
+
+        if (percentage1 === 100 && percentage2 === 100 && percentage3 === 100) {
+          clearInterval(interval); // Stop when all reach 100%
+        }
+      }, 500);
+    </script>
+  </body>
+</html>

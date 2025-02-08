@@ -1,0 +1,150 @@
+<!-- loan_status.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loan Progress Bars</title>
+    <style>
+      /* Styling for the progress bars and card layout */
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+
+      .card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 600px;
+        text-align: center;
+      }
+
+      .progress-container {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .progress-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50%;
+        background: conic-gradient(#4caf50 0% 0%, #dcdcdc 0% 100%);
+      }
+
+      .percentage {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .loan-text {
+        margin-top: 10px;
+        font-size: 12px;
+        color: #666;
+      }
+
+      .progress-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Loan Status</h2>
+      <div class="progress-row">
+        <!-- Loan 1 Progress Bar -->
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar-1"></div>
+          <div class="percentage" id="percentage-1">
+            {{ loan1_percentage }}%
+          </div>
+          <div class="loan-text">Loan 1</div>
+        </div>
+
+        <!-- Loan 2 Progress Bar -->
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar-2"></div>
+          <div class="percentage" id="percentage-2">
+            {{ loan2_percentage }}%
+          </div>
+          <div class="loan-text">Loan 2</div>
+        </div>
+
+        <!-- Loan 3 Progress Bar -->
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar-3"></div>
+          <div class="percentage" id="percentage-3">
+            {{ loan3_percentage }}%
+          </div>
+          <div class="loan-text">Loan 3</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Define an array of colors for each progress bar
+      const colors = ['#4caf50', '#ff9800', '#2196f3']; // Green, Orange, Blue
+
+      // Update the progress bars with the data passed from Django
+      document.addEventListener("DOMContentLoaded", function() {
+        // For each loan, update the progress bar and color
+        updateProgressBar({{ loan1_percentage }}, 1, colors[0]);
+        updateProgressBar({{ loan2_percentage }}, 2, colors[1]);
+        updateProgressBar({{ loan3_percentage }}, 3, colors[2]);
+      });
+
+      // Function to update progress bar with color
+      function updateProgressBar(percentage, id, color) {
+        const progressBar = document.getElementById(`progress-bar-${id}`);
+        const percentageDisplay = document.getElementById(`percentage-${id}`);
+
+        // Set the progress bar color dynamically
+        progressBar.style.background = `conic-gradient(${color} ${percentage}% 0%, #dcdcdc ${percentage}% 100%)`;
+        percentageDisplay.textContent = `${percentage}%`;
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+# views.py
+from django.shortcuts import render
+
+def loan_status(request):
+    # Individual loan data (hardcoded or fetched from the database)
+    loan1_percentage = 50
+    loan2_percentage = 75
+    loan3_percentage = 20
+
+    # Pass the data individually to the template
+    return render(request, 'loan_status.html', {
+        'loan1_percentage': loan1_percentage,
+        'loan2_percentage': loan2_percentage,
+        'loan3_percentage': loan3_percentage
+    })
+

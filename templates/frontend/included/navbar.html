@@ -1,0 +1,93 @@
+{% load static %}
+<!-- Main Header-->
+<header class="main-header">
+    	
+    <!--Header-Upper-->
+    <div class="header-upper">
+        <div class="auto-container">
+            <div class="clearfix">
+                
+                <div class="pull-left logo-box">
+                    <div class="logo"><a href="{% url 'frontend:home' %}"><img src="{% static 'frontend/images/dewfront_logored.png' %}" alt="" title=""></a></div>
+                </div>
+                   
+                   <div class="nav-outer clearfix">
+                
+                    <!-- Main Menu -->
+                    <nav class="main-menu navbar-expand-md">
+                        <div class="navbar-header">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+                            <ul class="navigation clearfix">
+                                <li class="current dropdown"><a href="{% url 'frontend:home' %}">Home</a>
+                                </li>
+                                <li class="dropdown"><a href="{% url 'frontend:about_us' %}">About Us</a>
+                                </li>
+                                <li class="dropdown"><a href="#services_neph">Services</a>
+                                </li>
+                                <li><a href="{% url 'frontend:contact_us' %}">Contact us</a></li>
+                                <li class=""><a href="{% url 'account:registration' %}">Register</a>
+                                </li>
+                                <li class=""><a href="{% url 'account:login' %}">Sign In</a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </nav>
+                    
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <!--End Header Upper-->
+    
+    <!--Sticky Header-->
+    <div class="sticky-header">
+        <div class="auto-container clearfix">
+            <!--Logo-->
+            <div class="logo pull-left">
+                <a href="{% url 'frontend:home' %}" class="img-responsive"><img src="{% static 'frontend/images/dewfront_logoyellow.png' %}" alt="" title=""></a>
+            </div>
+            
+            <!--Right Col-->
+            <div class="right-col pull-right">
+                <!-- Main Menu -->
+                <nav class="main-menu navbar-expand-md">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                    <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
+                        <ul class="navigation clearfix">
+                            <li class="current"><a href="{% url 'frontend:home' %}">Home</a>
+                            </li>
+                            <li class=""><a href="{% url 'frontend:about_us' %}">About Us</a>
+                            </li>
+                            <li class=""><a href="#">Services</a>
+                            </li>
+                            <li><a href="{% url 'frontend:contact_us' %}">Contact us</a></li>
+                            <li class=""><a href="{% url 'account:registration' %}">Register</a>
+                            </li>
+                            <li class=""><a href="{% url 'account:login' %}">Sign In</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </nav><!-- Main Menu End-->
+            </div>
+            
+        </div>
+    </div>
+    <!--End Sticky Header-->
+    
+</header>
+<!--End Main Header -->

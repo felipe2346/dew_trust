@@ -1,0 +1,257 @@
+
+
+:root {
+    --brand: #041292;
+    --taby: #050d50;
+    --body: #fff6f6;
+    --actioncall: #FFCC29;
+    --border: rgba(0,0,0,0.08);
+    --shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
+  }
+  
+  a{
+    text-decoration: none;
+  }
+  
+  body{
+    background-color: var(--body);
+  }
+  
+  li{
+    list-style-type: none;
+  }
+  
+  .bg-primary{
+      background-color: var(--brand) !important;
+  }
+  
+  /*.btn-primary{
+    background-color: var(--taby) !important;
+  }*/
+  
+  .bg-info{
+      background-color: var(--taby) !important;
+  }
+  
+  .navbar-brand{
+    font-size: 25px;
+    font-weight: bold;
+    color: yellow !important;
+  } 
+  
+  #hero-hero{
+  /*  background: var(--brand);
+  */  background: linear-gradient(-100deg, var(--taby) 10%, #fff 50%, var(--brand) 40%);
+  }
+  
+  .hero-lead{
+    color: #fff !important;
+    font-size: 55px;
+  }
+  
+  .hero-para{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  
+  /*text move animation*/
+  .wrapper{
+      max-width: 100%;
+      background: var(--taby);
+      height: 80px;
+      padding: 0 80px;
+      text-align: right;
+  }
+  
+  .marquee {
+      /*background: red;*/
+      color: white;
+      font-weight: 100px;
+      padding: 20px;
+      white-space: nowrap;
+      overflow:hidden;
+  
+      -webkit-animation: rightThenLeft 10s linear;
+  }
+  
+  /*suspended animation*/
+  .wrapper2{
+  
+    position: absolute;
+    bottom: 50%;
+    max-width: 100%;
+    background: red;
+    height: 80px;
+  /*  padding: 0 80px;
+  */  text-align: right;
+    z-index: 1000;
+  }
+  
+  .marquee2 {
+    /*background: red;*/
+    color: white;
+    font-weight: 100px;
+    padding: 20px;
+    white-space: nowrap;
+    overflow:hidden;
+  
+    -webkit-animation: rightThenLeft 10s linear;
+  
+  }
+  
+  @media (max-width: 768px){
+  .wrapper2{
+  
+    position: absolute;
+    top: 50%;
+    max-width: 400px;
+    background: red;
+    height: 30px;
+    text-align: right;
+    z-index: 1000;
+  }
+  
+  .marquee2 {
+    /*background: red;*/
+    color: white;
+  /*  font-weight: 50px;
+  */  font-size: 13px;
+    padding: 8px;
+    white-space: nowrap;
+    overflow:hidden;
+  
+    -webkit-animation: rightThenLeft 10s linear;
+  
+  }
+  }
+  
+  
+  /*.vid-o{
+    background: url(static/images/video.mp4);
+  }*/
+  
+  
+  .video-wrapper {
+    /* Telling our absolute positioned video to 
+    be relative to this element */
+    position: relative;
+  
+    width: 100%;
+    height: 400px;
+  
+    /* Will not allow the video to overflow the 
+    container */
+    overflow: hidden;
+  
+    /* Centering the container's content vertically 
+    and horizontally */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  #myVideo {
+    /** Simulationg background-size: cover */
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  /*.content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  }*/
+  
+  .content{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    background: rgba(8, 34, 107, 0.7);
+    color: #f1f1f1;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .content-letter{
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    right: 65%;
+    transform: translate(50%,-50%);
+  }
+  
+  
+  @media (max-width: 768px){
+    .video-wrapper {
+      width: 100%;
+      height: 240px;
+    }
+  
+    .content-letter{
+      font-size: 10px;
+      right: 48%;
+    }
+  }
+
+
+  /* the new slider marquee */
+
+  @keyframes loges-slide {
+		from{
+			transform: translateX(0);
+		}
+		to{
+			transform: translateX(-100%);
+		}
+	}
+
+	.loges{
+		overflow: hidden;
+		padding: 20px 0;
+		background: #050d50;
+		color: white;
+		white-space: nowrap;
+		position: relative;
+	}
+
+	.loges::before,
+	.loges::after{
+		position: absolute;
+		top: 0;
+		width: 200px;
+		height: 100%;
+		content: "";
+		z-index: 2;
+	}
+	.loges::before{
+		left: 0;
+		background: linear-gradient(to left, rgba(255, 255, 255, 0), #050d50);
+	}
+
+	.loges::after{
+		right: 0;
+		background: linear-gradient(to right, rgba(255, 255, 255, 0), #050d50);
+	}
+
+	.loges:hover .loges_slide{
+		animation-play-state: paused;
+	}
+	.loges_slide{
+		display: inline-block;
+		margin: 0 5px;
+		animation: 30s loges-slide infinite linear;
+	}

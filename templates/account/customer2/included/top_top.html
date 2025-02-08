@@ -1,0 +1,33 @@
+<div class="container-fluid bg-primary mx-0 top_content">
+    <div class="row">
+      <div class="col-12">
+        <div class="dashboard-header">
+          <div class="row">
+            <div class="col-md-8">
+              <h4>My Account Dashboard</h4>
+              <p> 
+                Welcome: {{request.user.get_full_name}} | 
+                <span>
+                  Logged User IP:
+                  {{ip}}
+                </span> 
+              </p>
+              <p>Date/Time: {{request.user.last_login}}</p>
+            </div>
+            <div class="col-md-4 mt-5">
+              <div class="">
+                <button
+                  class="btn btn-outline-warning btn-sm text-white px-4"
+                >
+                  E-Statement
+                </button>
+                <button class="btn btn-info btn-sm">
+                  Funds Transfer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

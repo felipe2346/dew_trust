@@ -1,0 +1,171 @@
+{% load static %}
+<!--Main Slider Start-->
+<section class="main-slider main-slider-style1">
+    <div class="swiper-container thm-swiper__slider" data-swiper-options="{&quot;slidesPerView&quot;: 1, &quot;loop&quot;: true,
+                &quot;effect&quot;: &quot;fade&quot;,
+                &quot;speed&quot;: 2000,
+                &quot;pagination&quot;: {
+                &quot;el&quot;: &quot;#main-slider-pagination&quot;,
+                &quot;type&quot;: &quot;bullets&quot;,
+                &quot;clickable&quot;: true
+                },
+                &quot;navigation&quot;: {
+                &quot;nextEl&quot;: &quot;#main-slider__swiper-button-next&quot;,
+                &quot;prevEl&quot;: &quot;#main-slider__swiper-button-prev&quot;
+                },
+                &quot;autoplay&quot;: {
+                &quot;delay&quot;: 8000
+            }
+        }">
+
+        <div class="swiper-wrapper">
+
+            <div class="main-slider-style1__shape1"></div>
+            <div class="main-slider-style1__shape2"></div>
+
+            <!--Start Single Swiper Slide-->
+            <div class="swiper-slide">
+                <div class="image-layer" style="background-image: url(/static/frontend2/images/slide-v1-1.jpg);">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="main-slider-content">
+                                <div class="main-slider-content__inner">
+                                    <div class="sub-title">
+                                        <div class="border-line"></div>
+                                        <h5>Simple &amp; Secure Solution</h5>
+                                    </div>
+                                    <div class="big-title">
+                                        <h2>Innovative Digital<br> Solutions for Future</h2>
+                                    </div>
+                                    <div class="text">
+                                        <p>
+                                            It doesn't happen with one transaction, in one day on the job, <br>
+                                            or in one quarter. It's earned relationship by relationship.
+                                        </p>
+                                    </div>
+                                    <div class="btn-box">
+                                        <a class="btn-one" href="{% url 'account:registration' %}">
+                                            <span class="txt">
+                                                Get Started Now
+                                                <i class="icon-Vector"></i>
+                                            </span>
+                                        </a>
+                                        <a class="btn-one" href="{% url 'account:login' %}">
+                                            <span class="txt">
+                                                Sign In Now
+                                                <i class="icon-Vector"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Single Swiper Slide-->
+
+            <!--Start Single Swiper Slide-->
+            <div class="swiper-slide">
+                <div class="image-layer" style="background-image: url(/static/frontend2/images/slide-v1-2.jpg);">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="main-slider-content">
+                                <div class="main-slider-content__inner">
+                                    <div class="sub-title">
+                                        <div class="border-line"></div>
+                                        <h5>Simple &amp; Secure Solution</h5>
+                                    </div>
+                                    <div class="big-title">
+                                        <h2>we Develop Stronger<br> business &amp; Minds</h2>
+                                    </div>
+                                    <div class="text">
+                                        <p>
+                                            It doesn't happen with one transaction, in one day on the job, <br>
+                                            or in one quarter. It's earned relationship by relationship.
+                                        </p>
+                                    </div>
+                                    <div class="btn-box">
+                                        <a class="btn-one" href="about.html">
+                                            <span class="txt">
+                                                Get Started Now
+                                                <i class="icon-Vector"></i>
+                                            </span>
+                                        </a>
+                                        <a class="btn-one" href="about.html">
+                                            <span class="txt">
+                                                Sign In Now
+                                                <i class="icon-Vector"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Single Swiper Slide-->
+
+            <!--Start Single Swiper Slide-->
+            <div class="swiper-slide">
+                <div class="image-layer" style="background-image: url(/static/frontend2/images/slide-v1-3.jpg);">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="main-slider-content">
+                                <div class="main-slider-content__inner">
+                                    <div class="sub-title">
+                                        <div class="border-line"></div>
+                                        <h5>Simple &amp; Secure Solution</h5>
+                                    </div>
+                                    <div class="big-title">
+                                        <h2>Innovative banking<br> Solutions for Future</h2>
+                                    </div>
+                                    <div class="text">
+                                        <p>
+                                            It doesn't happen with one transaction, in one day on the job, <br>
+                                            or in one quarter. It's earned relationship by relationship.
+                                        </p>
+                                    </div>
+                                    <div class="btn-box">
+                                        <a class="btn-one" href="about.html">
+                                            <span class="txt">
+                                                Get Started Now
+                                                <i class="icon-Vector"></i>
+                                            </span>
+                                        </a>
+                                        <a class="btn-one" href="about.html">
+                                            <span class="txt">
+                                                Sign In Now
+                                                <i class="icon-Vector"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Single Swiper Slide-->
+
+        </div>
+        <!-- If we need navigation buttons -->
+        <div class="main-slider__nav">
+            <div class="swiper-button-prev" id="main-slider__swiper-button-next">
+                <i class="icon-next1 left"></i>
+            </div>
+            <div class="swiper-button-next" id="main-slider__swiper-button-prev">
+                <i class="icon-next2 right"></i>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--Main Slider End-->
