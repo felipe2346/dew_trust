@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Dew Trust Finance Corporate Business ">
+<meta name="keywords" content="consulting, accountant, advisor, audit, beaver builder, broker, business, clean, company, consulting, corporate, finance, financial, insurance, trader">
+<meta name="author" content="TDKINGZ">
+<title>Dew Trust Finance | Homepage</title>
+<!-- Stylesheets -->
+<link href="{% static 'frontend/css/bootstrap.css' %}" rel="stylesheet">
+<link href="{% static 'frontend/css/style.css' %}" rel="stylesheet">
+<link href="{% static 'frontend/css/responsive.css' %}" rel="stylesheet">
+
+<link rel="shortcut icon" href="{% static 'frontend/images/favicon.png' %}" type="image/x-icon">
+<link rel="icon" href="{% static 'frontend/images/favicon.png' %}" type="image/x-icon">
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+
+</head>
+
+<body>
+
+<!-- Page wrapper start -->
+<div class="page-wrapper">
+ 	
+    <!-- Preloader -->
+    <div class="preloader"></div>
+ 	
+    <style>
+        .btn-warning{
+            background-color: #ff7a00;
+            border-color: #ff7a00;
+        }
+        .bg-primary{
+            background-color: #101118 !important;
+        }
+    </style>
+    
+    <!-- navbar start -->
+    {% include './included/navbar2.html' %}
+     <!-- navbar end -->
+    
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(/static/frontend/images/background/8.jpg)">
+        <div class="auto-container">
+            <div class="content">
+                <h1>Verify <span>OTP</span></h1>
+                <ul class="page-breadcrumb">
+                    <li><a href="{% url 'frontend:home' %}">Home</a></li>
+                    <li>Pages</li>
+                    <li>Verify otp</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+    
+    
+    
+    <div class="container py-4 mt-5">
+        <div class="row align-item-cnter justify-content-center">
+            <div class="col-md-4">
+                <div class="card bg-primary text-white shadow-lg">
+                    
+                    <center>
+                        <div class=" mt-2 mb-3">
+                            <img src="{% static 'frontend/images/dewfront_logoyellow.png' %}" class="img-fluid" >
+                        </div>
+                    </center>
+    
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                     {{message}}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+    
+                    
+                    <h5 class="text-center text-white my-4">Enter OTP Code for verification</h5>
+    
+                    <center>
+                        <p class="fw-bold text-white px-4">Please enter the 5 digits otp verification code that was sent to your email.<br>xxxxxxx{{email|slice:"8:20"}}xxx</p>
+                        <!-- <div class="spinner-grow text-secondary" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div> -->
+                    </center>
+                    
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+    
+                            <div class="mb-3">
+                              {{ form.number.errors }}
+                              <label for="{{ form.number.id_for_label }}" class="form-label fw-bold">Enter Otp Code:</label>
+                              {{ form.number }}
+                            </div>
+                            <button type="submit" id="otpVerify"  class="btn btn-warning text-white fw-bold w-100 mt-2">Confirm</button>
+                        </form>
+                        
+                    </div>
+                </div>		
+            </div>		
+        </div>
+    </div>
+    
+    
+    <script>
+        const otpVerify = document.querySelector("#otpVerify");
+    
+        otpVerify.addEventListener("click", () => otpVerify.textContent = `Authenticating .........`);
+    </script>
+	
+</div>
+<!--End pagewrapper-->
+
+<script src="{% static 'frontend/js/jquery.js' %}"></script>
+<script src="{% static 'frontend/js/popper.min.js' %}"></script>
+<script src="{% static 'frontend/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'frontend/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+<script src="{% static 'frontend/js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'frontend/js/appear.js' %}"></script>
+<script src="{% static 'frontend/js/owl.js' %}"></script>
+<script src="{% static 'frontend/js/wow.js' %}"></script>
+<script src="{% static 'frontend/js/jquery-ui.js' %}"></script>
+<script src="{% static 'frontend/js/main.js' %}"></script>
+<!--Google Map APi Key-->
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTPlX-43R1TpcQUyWjFgiSfL_BiGxslZU"></script>
+<script src="{% static 'frontend/js/map-script.js' %}"></script>
+<!--End Google Map APi-->
+
+</body>
+</html>

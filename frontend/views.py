@@ -44,7 +44,7 @@ def contact_us(request):
             return redirect('frontend:contact_us')
 
     context = {}
-    return render(request, 'frontend/contact_us.html', context)
+    return render(request, 'frontend/new/contact_us.html', context)
 
 
 def location(request):
@@ -52,7 +52,7 @@ def location(request):
 
 
 def about_us(request):
-    return render(request, 'frontend/about_us.html')
+    return render(request, 'frontend/new/about_us.html')
 
 
 import time

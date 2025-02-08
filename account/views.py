@@ -40,7 +40,7 @@ def registerUser(request):
         address_form = UserBankAccountForm()
 
     context = {'form':registration_form , 'ad_form':address_form}
-    return render(request, 'frontend/register.html', context)
+    return render(request, 'frontend/new/register.html', context)
     # return render(request, 'account/authentication/registration.html', context)
 
 
@@ -77,7 +77,7 @@ def loginUser(request):
                 
         else:
             messages.error(request, 'Username or Password is incorrect')
-    return render(request, 'frontend/login.html')
+    return render(request, 'frontend/new/login.html')
 
 
 def verifyOtp(request):
@@ -135,7 +135,7 @@ def verifyOtp(request):
                 return redirect('account:verify_otp')
 
     context = {'form': form, 'email':email}
-    return render(request, 'frontend/verify_otp.html', context)
+    return render(request, 'frontend/new/verify_otp.html', context)
     # return render(request, 'account/customer/verify_otp.html', context)
 
 

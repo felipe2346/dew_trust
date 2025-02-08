@@ -1,0 +1,301 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Dew Trust Finance Corporate Business ">
+<meta name="keywords" content="consulting, accountant, advisor, audit, beaver builder, broker, business, clean, company, consulting, corporate, finance, financial, insurance, trader">
+<meta name="author" content="TDKINGZ">
+<title>Dew Trust Finance | Homepage</title>
+<!-- Stylesheets -->
+<link href="{% static 'frontend/css/bootstrap.css' %}" rel="stylesheet">
+<link href="{% static 'frontend/css/style.css' %}" rel="stylesheet">
+<link href="{% static 'frontend/css/responsive.css' %}" rel="stylesheet">
+
+<link rel="shortcut icon" href="{% static 'frontend/images/favicon.png' %}" type="image/x-icon">
+<link rel="icon" href="{% static 'frontend/images/favicon.png' %}" type="image/x-icon">
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+
+</head>
+
+<body>
+
+<!-- Page wrapper start -->
+<div class="page-wrapper">
+ 	
+    <!-- Preloader -->
+    <div class="preloader"></div>
+ 	
+    <style>
+        .bg-primary{
+            background-color: rgb(3, 3, 8) !important;
+        }
+        .btn-info{
+            background-color: rgb(255, 181, 21) !important;
+            border-color: rgb(255, 181, 21) !important;
+        }
+        .btn-info:hover{
+            background-color: rgb(163, 114, 8) !important;
+            border-color: rgb(163, 114, 8) !important;
+        }
+        label{
+            font-weight: bold !important;
+            color: black !important;
+        }
+    </style>
+    
+    <!-- navbar start -->
+    {% include '../included/navbar2.html' %}
+     <!-- navbar end -->
+    
+    
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(/static/frontend/images/background/8.jpg)">
+        <div class="auto-container">
+            <div class="content">
+                <h1>Register <span>Account</span></h1>
+                <ul class="page-breadcrumb">
+                    <li><a href="{% url 'frontend:home' %}">Home</a></li>
+                    <li>Pages</li>
+                    <li>Register</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+    
+    <!-- registewr form start -->
+    <div class="container py-5" >
+        <div class="row align-itm-center justify-content-center mb-5">
+            <div class="col-md-10">
+                <div class="card shadow" style="z-index: 777;">
+                    <h3 class="text-center text-dark fw-bold py-3 mt-2">Register Account</h3>
+                    {% if registration_form.errors %}
+                        <p class="text-white fw-bold">Please correct the following errors:</p>
+                        {% for field in registration_form %}
+                            {% if field.errors %}
+                            <div class="alert alert-primary" role="alert">
+                                {{ field.label }}: {{ field.errors|striptags }}
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    {% if address_form.errors %}
+                        <p class="text-white fw-bold">Please correct the following errors:</p>
+                        {% for field in address_form %}
+                            {% if field.errors %}
+                            <div class="alert alert-primary" role="alert">
+                                {{ field.label }}: {{ field.errors|striptags }}
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    
+                    {% include '../../regulars/alert.html' %}
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="card-body">
+                            {{ form.non_field_errors }}
+                            <h5 class="bg-primary text-center text-white py-2 mb-3">LOGIN DETAILS</h5>
+    
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                      {{ form.email.errors }}
+                                      <label for="{{ form.email.id_for_label }}" class="form-label fw-bold">Email Address:</label>
+                                      {{ form.email }}
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                      {{ form.password1.errors }}
+                                      <label for="{{ form.password1.id_for_label }}" class="form-label fw-bold">Password:</label>
+                                      {{ form.password1 }}
+                                      <!-- <div id="{{ form.birthdate.id_for_label }}" class="form-text">at least more than 12 characters</div> -->
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-3 ">
+                                    <div class="mb-3">
+                                      {{ form.password2.errors }}
+                                      <label for="{{ form.password2.id_for_label }}" class="form-label fw-bold">Password Confirmation:</label>
+                                      {{ form.password2 }}
+                                    </div>
+                                </div>
+                                <div class="col-md-2 mt-md-5">
+                                    <div class="mb-3">
+                                        <label for="show-pass" class="form-check-label fw-bold">Show Password:</label>
+                                        <input class="form-check-input"  id="show-pass" type="checkbox" onclick="myFunction()">
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="bg-primary text-center text-white py-2 mb-3">PERSONAL INFORMATIONS</h5>
+    
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="mb-3">
+                                        {{ form.title.errors }}
+                                      <label for="{{ form.title.id_for_label }}" class="form-label fw-bold">Title:</label>
+                                      {{ form.title }}
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                      {{ form.first_name.errors }}
+                                      <label for="{{ form.first_name.id_for_label }}" class="form-label fw-bold">First Name:</label>
+                                      {{ form.first_name }}
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                      {{ form.last_name.errors }}	
+                                      <label for="{{ form.last_name.id_for_label }}" class="form-label fw-bold">Last Name:</label>
+                                      {{ form.last_name }}
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-3">
+                                      {{ form.gender.errors }}
+                                      <label for="{{ form.gender.id_for_label }}" class="form-label fw-bold">Gender:</label>
+                                      {{ form.gender }}
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-3">
+                                        {{ form.birth_date.errors }}
+                                      <label for="{{ form.birth_date.id_for_label }}" class="form-label fw-bold">Birthdate:</label>
+                                      {{ form.birth_date}}
+                                      <!-- <div id="{{ form.birthdate.id_for_label }}" class="form-text">( eg. mm/dd/yyyy) </div> -->
+    
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="mb-3">
+                                        {{ ad_form.street_address.errors }}
+                                      <label for="{{ ad_form.street_address.id_for_label }}" class="form-label fw-bold">Street Address:</label>
+                                      {{ ad_form.street_address }}
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-2">
+                                    <div class="mb-3">
+                                        {{ ad_form.city.errors }}
+                                      <label for="{{ ad_form.city.id_for_label }}" class="form-label fw-bold">City:</label>
+                                      {{ ad_form.city }}
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-2">
+                                    <div class="mb-3">
+                                        {{ ad_form.postal_code.errors }}
+                                      <label for="{{ ad_form.postal_code.id_for_label }}" class="form-label fw-bold">Postal Code:</label>
+                                      {{ ad_form.postal_code }}
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        {{ ad_form.country.errors }}
+                                      <label for="{{ ad_form.country.id_for_label }}" class="form-label fw-bold">Country:</label>
+                                      {{ ad_form.country }}
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <h5 class="bg-primary text-center text-white py-2 mb-3">ACCOUNT INFORMATIONS</h5>
+                            <div class="row mb-4">
+                                <div class="col-md-2">
+                                    <div class="mb-3">
+                                        {{ ad_form.account_type.errors }}
+                                      <label for="{{ ad_form.account_type.id_for_label }}" class="form-label fw-bold">Account Type:</label>
+                                      {{ ad_form.account_type }}
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-2">
+                                    <div class="mb-3">
+                                        {{ ad_form.currency.errors }}
+                                      <label for="{{ ad_form.currency.id_for_label }}" class="form-label fw-bold">Currency:</label>
+                                      {{ ad_form.currency }}
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-2">
+                                    <div class="mb-3">
+                                        {{ ad_form.anual_income.errors }}
+                                      <label for="{{ ad_form.anual_income.id_for_label }}" class="form-label fw-bold">Annual Income:</label>
+                                      {{ ad_form.anual_income }}
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-3">
+                                        {{ ad_form.asset_worth.errors }}
+                                      <label for="{{ ad_form.asset_worth.id_for_label }}" class="form-label fw-bold">Asset Worth:</label>
+                                      {{ ad_form.asset_worth }}
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-3">
+                                        {{ ad_form.credit_worth.errors }}
+                                      <label for="{{ ad_form.credit_worth.id_for_label }}" class="form-label fw-bold">Credit Worth:</label>
+                                      {{ ad_form.credit_worth }}
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            
+                            <input type="submit" value="Submit" class="btn btn-info text-white w-100 fw-bold">
+                            <!-- <a href="{% url 'frontend:home' %}" class="btn btn-danger float-end mx-4 fw-bold mb-3">Cancel</a>						 -->
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- reister form end -->
+    
+    <script>
+        function myFunction() {
+          var x = document.getElementById("id_password1");
+          var y = document.getElementById("id_password2")
+          if (x.type === "password") {
+            x.type = "text";
+            y.type = "text";
+          } else {
+            x.type = "password";
+            y.type = "password";
+          }
+        }
+    </script>
+	
+</div>
+<!--End pagewrapper-->
+
+<script src="{% static 'frontend/js/jquery.js' %}"></script>
+<script src="{% static 'frontend/js/popper.min.js' %}"></script>
+<script src="{% static 'frontend/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'frontend/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+<script src="{% static 'frontend/js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'frontend/js/appear.js' %}"></script>
+<script src="{% static 'frontend/js/owl.js' %}"></script>
+<script src="{% static 'frontend/js/wow.js' %}"></script>
+<script src="{% static 'frontend/js/jquery-ui.js' %}"></script>
+<script src="{% static 'frontend/js/main.js' %}"></script>
+<!--Google Map APi Key-->
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTPlX-43R1TpcQUyWjFgiSfL_BiGxslZU"></script>
+<script src="{% static 'frontend/js/map-script.js' %}"></script>
+<!--End Google Map APi-->
+
+</body>
+</html>
