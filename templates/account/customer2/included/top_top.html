@@ -16,14 +16,8 @@
             </div>
             <div class="col-md-4 mt-5">
               <div class="">
-                <button
-                  class="btn btn-outline-warning btn-sm text-white px-4"
-                >
-                  E-Statement
-                </button>
-                <button class="btn btn-info btn-sm">
-                  Funds Transfer
-                </button>
+                <a href="{% url 'customer:user_account_statement' %}" class="btn btn-outline-warning btn-sm text-white px-4">E-Statement</a>
+                <a class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#transaferType">Funds Transfer</a>
               </div>
             </div>
           </div>

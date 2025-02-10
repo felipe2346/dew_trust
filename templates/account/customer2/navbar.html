@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container-fluid">
       <div class="d-flex align-items-center">
-          <a class="navbar-brand" href="#">DEW TRUST BANK</a>
+          <a class="navbar-brand" href="#">DTFB</a>
           <!-- <i class="fa-solid fa-bars ms-5 my_menu_bar"></i> -->
           <div id="google_translate_element" class="ms-md-5 ms-1"></div>
       </div>
@@ -14,14 +14,15 @@
           class="profile-image me-2 d-none d-md-block"
         />
         <span></span>
-        <i class="fa-solid fa-bars my_menu_bar d-md-none"></i>
+        <i class="fa-solid fa-bars my_menu_bar d-md-none " id="menu_bar"></i>
+        <i class="fa-solid fa-xmark my_menu_bar d-none d-md-none" id="menu_bar_close"></i>
       </div>
     </div>
 </nav>
 
 
 <!-- Sidebar -->
-<div class="sidebar">
+<div class="sidebar" id="sidebar">
     <div class="clock-placeholder">
         <img src="{{request.user.profile.picture.url}}" alt="profile image">
     </div>
@@ -35,7 +36,7 @@
     <a href="{% url 'customer:customer_care' %}"><i class="fa fa-phone me-2"></i>Get Help</a>
     <a href="{% url 'customer:update_profile' %}"><i class="fa fa-upload me-1"></i>Update Picture</a>
     <a href="{% url 'account:change_password' %}"><i class="fa fa-unlock-alt me-2"></i>Change Password</a>
-    <a href="{% url 'account:logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+    <a href="{% url 'account:logout' %}" class="logout_btn fw-bold">Logout <i class="fa-solid fa-arrow-right-from-bracket ms-3"></i></a>
 </div>
 
 
