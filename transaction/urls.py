@@ -7,6 +7,7 @@ urlpatterns = [
     path("deposit/", views.DepositMoneyView.as_view(), name="deposit_money"),
     path("withdraw/", views.WithdrawMoneyView.as_view(), name="withdraw_money"),
     path("account/transfer/", views.CustomerWithdrawMoneyView.as_view(), name="customer_transfer"),
+    path("account/international-transfer/", views.InternationaTransferView.as_view(), name="intern_transfer"),
     path('verify/', views.transactionVerify, name='verify'),
 
     path('pending/', views.transactionPending, name='pending'),

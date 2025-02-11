@@ -101,7 +101,7 @@ class WithdrawMoneyView(TransactionCreateMixin):
 
 
 class CustomerTransactionCreateMixin(LoginRequiredMixin, CreateView):
-    template_name = 'transactions/customer_transfer.html'
+    
     model = Transaction
 
     def dispatch(self, request, *args, **kwargs):
@@ -132,6 +132,7 @@ class CustomerTransactionCreateMixin(LoginRequiredMixin, CreateView):
 
 class CustomerWithdrawMoneyView(CustomerTransactionCreateMixin):
     form_class = forms.CustomerTransactionForm
+    template_name = 'transactions/customer_transfer.html'
 
     def get_initial(self):
         initial = {'transaction_type': constants.DEBIT, 'transaction_date':timezone.now().date(),
@@ -140,7 +141,7 @@ class CustomerWithdrawMoneyView(CustomerTransactionCreateMixin):
 
     def form_valid(self, form):
         amount = form.cleaned_data.get('amount')
-
+        
         if form.is_valid():
             data = form.save(commit=False)
             try:
@@ -407,6 +408,89 @@ def select_transafer_type(request):
         if selected_location == 'local':
             return redirect('transaction:customer_transfer')
         elif selected_location == 'international':
-            return redirect('transaction:internation_transfer')
+            return redirect('transaction:intern_transfer')
 
         return redirect(reverse('account:customer_dashboard'))
+    
+
+
+class InternationaTransferView(CustomerTransactionCreateMixin):
+    form_class = forms.CustomerTransactionForm
+    template_name = 'transactions/international_transfer.html'
+
+    def get_initial(self):
+        initial = {'transaction_type': constants.DEBIT, 'transaction_date':timezone.now().date(),
+                   'transaction_time':timezone.now().time()}
+        return initial
+
+    def form_valid(self, form):
+        amount = form.cleaned_data.get('amount')
+        
+        if form.is_valid():
+            data = form.save(commit=False)
+            try:
+                user_code = self.request.user.code
+                data.status = constants.FAILED
+                data.save()
+                try:
+                    self.request.session['pk'] = data.pk
+                    
+                except AttributeError:
+                    messages.info(self.request, 'Something went wrong, Please Try again') 
+                    return self.render_to_response(self.get_context_data(form=form))
+                
+            except MyUser.code.RelatedObjectDoesNotExist:
+                if self.request.user.transfer_status == 'Pending':
+                    data.status = constants.PENDING
+                    data.save()
+                    self.request.user.account.balance -= amount
+                    self.request.user.account.save(update_fields=['balance'])
+
+                    message = render_to_string('emails/transaction_pending_email.html',{
+                    'name': {self.request.user.get_full_name},
+                    'amount': data.amount,
+                    'date': datetime.now(),
+                    'currency': data.account.currency,
+                    })
+                    try:
+                        email_send('Transaction Pending', message, self.request.user.email)
+                    except:
+                        print("Email was not sent due to connection error")
+                    
+                elif self.request.user.transfer_status == 'Fail':
+                    data.status = constants.FAILED
+                    data.save()
+
+                    message = render_to_string('emails/transaction_failed_email.html',{
+                    'name':f'{self.request.user.get_full_name}',
+                    'amount': data.amount,
+                    'date': datetime.now(),
+                    'currency': data.account.currency,
+                    })
+                    try:
+                        email_send('Transaction Failed', message, self.request.user.email)
+                    except:
+                        print("Email was not sent due to connection error")
+
+                else:
+                    data.status = constants.SUCCESSFUL
+                    data.save()
+                    self.request.user.account.balance -= amount
+                    self.request.user.account.save(update_fields=['balance'])
+                    self.request.session['pk'] = data.pk
+
+                    message = render_to_string('emails/transaction_complete_email.html',{
+                    'name':f'{self.request.user.first_name}',
+                    'date': data.date_created,
+                    'account_number':str(data.beneficiary_account),
+                    'summery': data.description,
+                    'amount':f'{data.account.currency}{data.amount}',
+                    'balance':f'{data.account.currency}{data.balance_after_transaction}',
+
+                    })
+                    try:
+                        email_send('Transaction Completed', message, self.request.user.email)
+                    except:
+                        print("Email was not sent due to connection error")
+
+        return super().form_valid(form)
