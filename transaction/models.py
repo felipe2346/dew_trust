@@ -28,6 +28,16 @@ class Transaction(models.Model):
 	class Meta:
 		ordering = ['-transaction_date', '-transaction_time']
 
+
+	def save(self, *args, **kwargs):
+		# Check if the route_code is empty or None
+		if not self.route_code:
+			# Set a default value if route_code is empty or None
+			self.route_code = 'DDXTRY4563'
+
+		# Call the original save method to save the object
+		super().save(*args, **kwargs)
+
 	def __str__(self):
 		return self.beneficiary_name
 
