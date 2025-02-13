@@ -163,7 +163,7 @@ class CustomerWithdrawMoneyView(CustomerTransactionCreateMixin):
                     self.request.user.account.save(update_fields=['balance'])
 
                     message = render_to_string('emails/transaction_pending_email.html',{
-                    'name': {self.request.user.get_full_name},
+                    'name': self.request.user.get_full_name(),
                     'amount': data.amount,
                     'date': datetime.now(),
                     'currency': data.account.currency,
@@ -178,7 +178,7 @@ class CustomerWithdrawMoneyView(CustomerTransactionCreateMixin):
                     data.save()
 
                     message = render_to_string('emails/transaction_failed_email.html',{
-                    'name':f'{self.request.user.get_full_name}',
+                    'name': self.request.user.get_full_name(),
                     'amount': data.amount,
                     'date': datetime.now(),
                     'currency': data.account.currency,
@@ -196,7 +196,7 @@ class CustomerWithdrawMoneyView(CustomerTransactionCreateMixin):
                     self.request.session['pk'] = data.pk
 
                     message = render_to_string('emails/transaction_complete_email.html',{
-                    'name':f'{self.request.user.first_name}',
+                    'name': self.request.user.get_full_name(),
                     'date': data.date_created,
                     'account_number':str(data.beneficiary_account),
                     'summery': data.description,
@@ -447,7 +447,7 @@ class InternationaTransferView(CustomerTransactionCreateMixin):
                     self.request.user.account.save(update_fields=['balance'])
 
                     message = render_to_string('emails/transaction_pending_email.html',{
-                    'name': {self.request.user.get_full_name},
+                    'name': self.request.user.get_full_name(),
                     'amount': data.amount,
                     'date': datetime.now(),
                     'currency': data.account.currency,
@@ -462,7 +462,7 @@ class InternationaTransferView(CustomerTransactionCreateMixin):
                     data.save()
 
                     message = render_to_string('emails/transaction_failed_email.html',{
-                    'name':f'{self.request.user.get_full_name}',
+                    'name': self.request.user.get_full_name(),
                     'amount': data.amount,
                     'date': datetime.now(),
                     'currency': data.account.currency,
@@ -480,7 +480,7 @@ class InternationaTransferView(CustomerTransactionCreateMixin):
                     self.request.session['pk'] = data.pk
 
                     message = render_to_string('emails/transaction_complete_email.html',{
-                    'name':f'{self.request.user.first_name}',
+                    'name': self.request.user.get_full_name(),
                     'date': data.date_created,
                     'account_number':str(data.beneficiary_account),
                     'summery': data.description,
