@@ -151,16 +151,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'mail.privateemail.com'
+EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_PORT = 465
 # EMAIL_PORT = 587
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = 'Pinnacle Trust <contact@pinnacleonlinetb.com>'
+DEFAULT_FROM_EMAIL = 'Dew Trust FB <contact@dewtrustonlinefb.com>'
 
 
-SESSION_EXPIRE_SECONDS = 9000
+SESSION_EXPIRE_SECONDS = 900
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 SESSION_TIMEOUT_REDIRECT = '/' 
