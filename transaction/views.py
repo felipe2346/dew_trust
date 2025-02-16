@@ -325,7 +325,7 @@ def approveTransaction(request, pk):
     transaction.save()
     user = transaction.account.user
     email = user.email
-    full_name = {user.get_full_name}
+    full_name = user.get_full_name()
 
     try:
         message = render_to_string('emails/approved.html',{
@@ -359,7 +359,7 @@ def declineTransaction(request, pk):
 
     try:
         message = render_to_string('emails/declined.html',{
-        'name':{user_bank_account.user.get_full_name},
+        'name':user_bank_account.user.get_full_name(),
         'amount': amount,
         'date': transaction.date_created,
         'currency': transaction.account.currency,

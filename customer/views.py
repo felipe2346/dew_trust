@@ -212,4 +212,4 @@ def customerSuspended(request):
             'gross_debit_percent':gross_debit_percent,'gross_credit_percent':gross_credit_percent,
             'ledger_balance':ledger_balance, 'month':month_of_year, 'sum':total_transaction}
     
-    return render(request, 'account/customer/suspended.html', context)
+    return render(request, 'account/customer2/suspended.html', context)

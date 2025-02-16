@@ -19,9 +19,32 @@
     <!-- custom css -->
     <!-- <link rel="stylesheet" href="{% static 'css/customer/responsive.css' %}"> -->
     <link rel="stylesheet" href="{% static 'css/customer/customer.css' %}">
+
+    <style>
+      body{
+        position: relative;
+      }
+      .base_info{
+        position: absolute;
+        top: 30%;
+        left: 20;
+        background-color: red;
+        color: #fff;
+        z-index: 9999;
+        width: 100%;
+        text-align: center;
+        padding: 15px 10px;
+      }
+    </style>
     
   </head>
   <body>
+
+    {% if request.user.status == 'suspended' %}
+      <div class="base_info">
+        This account is blocked, please contact out customer care for further enquiry.
+      </div>
+    {% endif %}
 
     {% include './navbar.html' %}
     <div class="main-content">

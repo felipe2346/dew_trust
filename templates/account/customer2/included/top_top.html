@@ -16,8 +16,13 @@
             </div>
             <div class="col-md-4 mt-5">
               <div class="">
-                <a href="{% url 'customer:user_account_statement' %}" class="btn btn-outline-warning btn-sm text-white px-4">E-Statement</a>
-                <a class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#transaferType">Funds Transfer</a>
+                {% if request.user.status == 'suspended' %}
+                  <a href="#" class="btn btn-outline-warning btn-sm text-white px-4">E-Statement</a>
+                  <a class="btn btn-info btn-sm" href="#">Funds Transfer</a>
+                {% else %}
+                  <a href="{% url 'customer:user_account_statement' %}" class="btn btn-outline-warning btn-sm text-white px-4">E-Statement</a>
+                  <a class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#transaferType">Funds Transfer</a>
+                {% endif %}
               </div>
             </div>
           </div>
