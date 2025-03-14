@@ -121,8 +121,8 @@ AUTH_USER_MODEL = 'account.MyUser'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/New_York'
-# TIME_ZONE = 'UTC'
+# TIME_ZONE = 'America/New_York'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 

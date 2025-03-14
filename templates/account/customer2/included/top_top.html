@@ -12,7 +12,10 @@
                   {{ip}}
                 </span> 
               </p>
-              <p>Date/Time: {{request.user.last_login|timezone}}</p>
+              <p id="last-login" data-time="{{ request.user.last_login|date:'c' }}">
+                Date/Time: {{ request.user.last_login }}
+              </p>
+              <!-- <p id="last-login">Date/Time: {{request.user.last_login}}</p> -->
             </div>
             <div class="col-md-4 mt-5">
               <div class="">
@@ -30,3 +33,20 @@
       </div>
     </div>
 </div>
+
+<!-- Convert the time using JavaScript -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const lastLoginElement = document.getElementById("last-login");
+    const utcTimestamp = lastLoginElement.getAttribute("data-time"); // Correctly extract only the time
+
+    if (utcTimestamp) {
+      const date = new Date(utcTimestamp); // Convert to JS Date object
+      const localDateString = date.toLocaleDateString();
+      const localTimeString = date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+      // Update the HTML to show the local time
+      lastLoginElement.textContent = `Last Login: ${localDateString}, ${localTimeString}`;
+    }
+  });
+</script>
