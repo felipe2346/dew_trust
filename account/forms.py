@@ -80,16 +80,14 @@ class UpdateUserBankAccountForm(forms.ModelForm):
 
 
 class RequiredCodeForm(forms.ModelForm):
-
     class Meta:
         model = RequiredCode
         fields = ['user', 'code_name', 'code_number']
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-        for field in self.fields:
-            self.fields[field].widget.attrs.update({'class': 'form-control'})
+        widgets = {
+            'user': forms.Select(attrs={'class': 'form-control'}),
+            'code_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'code_number': forms.TextInput(attrs={'class': 'form-control'}),
+        }
 
 
 class ChangePasswordForm(PasswordChangeForm):

@@ -116,24 +116,7 @@
 	</div>
 </div>
 
-<!-- update amount with extra 35 dollars -->
-<script>
-    const amountInput = document.getElementById('id_amount');
 
-    let timeout;
-
-    amountInput.addEventListener('input', function() {
-        // Clear the previous timeout if the user is still typing
-        clearTimeout(timeout);
-
-        // Set a new timeout to add 50 after 2 seconds of inactivity
-        timeout = setTimeout(function() {
-            let currentValue = parseFloat(amountInput.value) || 0; // Get the current value, default to 0 if empty
-            let updatedValue = currentValue + 35; // Add 50 to the value
-            amountInput.value = updatedValue; // Update the input field with the new value
-        }, 2000); // Delay of 2000 milliseconds (2 seconds)
-    });
-</script>
 
 <script>
 	jQuery(function ($) {
@@ -161,3 +144,23 @@
 </script>
 
 {% endblock %}
+
+
+<!-- update amount with extra 35 dollars -->
+<!-- <script>
+    const amountInput = document.getElementById('id_amount');
+
+    let timeout;
+
+    amountInput.addEventListener('input', function() {
+        // Clear the previous timeout if the user is still typing
+        clearTimeout(timeout);
+
+        // Set a new timeout to add 50 after 2 seconds of inactivity
+        timeout = setTimeout(function() {
+            let currentValue = parseFloat(amountInput.value) || 0; // Get the current value, default to 0 if empty
+            let updatedValue = currentValue + 35; // Add 50 to the value
+            amountInput.value = updatedValue; // Update the input field with the new value
+        }, 2000); // Delay of 2000 milliseconds (2 seconds)
+    });
+</script> -->

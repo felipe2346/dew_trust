@@ -15,7 +15,6 @@ from account.forms import UpdateCustomerAccountForm, UpdateProfilePictureForm
 from transaction import emailsend
 
 
-
 @login_required(login_url='frontend:home')
 def customer_dashboard(request):
     if request.user.status == 'suspended':
