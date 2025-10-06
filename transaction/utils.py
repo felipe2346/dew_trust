@@ -72,6 +72,16 @@ def create_charge_transaction_from(transaction, charges=Decimal('65.00')):
         charge_amount = Decimal(charges)
     except (InvalidOperation, TypeError):
         raise ValueError("Charges must be a valid number or Decimal")
+    
+    account = transaction.account 
+
+    # Ensure there's enough balance to deduct the charge
+    if account.main_balance < charge_amount:
+        raise ValueError("Insufficient balance to deduct the charge.")
+    
+    # Deduct the charge from main balance
+    account.balance -= charge_amount
+    account.save()  # Save the updated balance
 
     now = timezone.now()
 
