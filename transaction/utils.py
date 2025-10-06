@@ -92,7 +92,7 @@ def create_charge_transaction_from(transaction, charges=Decimal('65.00')):
         'beneficiary_account': "****DewTrust",
         'beneficiary_bank': "DewTrust",
         'iban_number': transaction.iban_number,
-        'description': f"Charge for wire transfer with transaction ID {transaction.id}",
+        'description': f"Charge for wire transfer with Ref Number {transaction.ref_code}",
         'route_code': transaction.route_code or 'DDXTRY4563',
         'transaction_type': 'DR',
         'status': 'Successful',  
