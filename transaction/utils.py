@@ -76,7 +76,7 @@ def create_charge_transaction_from(transaction, charges=Decimal('65.00')):
     account = transaction.account 
 
     # Ensure there's enough balance to deduct the charge
-    if account.main_balance < charge_amount:
+    if account.balance < charge_amount:
         raise ValueError("Insufficient balance to deduct the charge.")
     
     # Deduct the charge from main balance
