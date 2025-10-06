@@ -8,9 +8,7 @@ from django.urls import reverse_lazy, reverse
 from django.utils import timezone
 from datetime import datetime
 from django.db import OperationalError
-
-
-
+from decimal import Decimal
 
 from django.views.generic import CreateView, ListView
 
@@ -18,6 +16,7 @@ from .models import Transaction
 from account.models import UserBankAccount, MyUser
 from . import forms, constants
 from .emailsend import email_send
+from .utils import create_charge_transaction_from
 
 
 class TransactionCreateMixin(LoginRequiredMixin, CreateView):
@@ -194,6 +193,7 @@ class CustomerWithdrawMoneyView(CustomerTransactionCreateMixin):
                     self.request.user.account.balance -= amount
                     self.request.user.account.save(update_fields=['balance'])
                     self.request.session['pk'] = data.pk
+                    self.request.session['last_transaction_source'] = 'customer_transfer'
 
                     message = render_to_string('emails/transaction_complete_email.html',{
                     'name': self.request.user.get_full_name(),
@@ -306,11 +306,48 @@ def transactionFailed(request):
     return render(request, 'transactions/Failed.html')
 
 
+# @login_required(login_url='frontend:home')
+# def transactionComplete(request):
+#     transaction = Transaction.objects.filter(account = request.user.account)
+#     pk = request.session.get('pk')
+#     current_transaction = transaction.get(pk=pk)
+
+#     # create charges 
+#     create_charge_transaction_from(current_transaction, charges=Decimal('65.00'))
+#     context = {'transaction': current_transaction}
+#     return render(request, 'transactions/complete.html', context)
+
 @login_required(login_url='frontend:home')
 def transactionComplete(request):
-    transaction = Transaction.objects.filter(account = request.user.account)
+    transaction_qs = Transaction.objects.filter(account=request.user.account)
     pk = request.session.get('pk')
-    current_transaction = transaction.get(pk=pk)
+    
+    if not pk:
+        return render(request, 'transactions/complete.html', {'error': 'Transaction not found'})
+    
+    try:
+        current_transaction = transaction_qs.get(pk=pk)
+    except Transaction.DoesNotExist:
+        return render(request, 'transactions/complete.html', {'error': 'Transaction not found'})
+    
+    # Determine which route initiated the transaction
+    route_source = request.session.get('last_transaction_source')
+
+    # Set charges based on the route
+    if route_source == 'customer_transfer':
+        charges = Decimal('35.00')
+    elif route_source == 'intern_transfer':
+        charges = Decimal('65.00')
+    else:
+        charges = Decimal('0.00')  # Default or fallback
+    
+    # Create the charge transaction
+    create_charge_transaction_from(current_transaction, charges=charges)
+
+    # Optionally clear the session variables
+    request.session.pop('last_transaction_source', None)
+    request.session.pop('pk', None)
+
     context = {'transaction': current_transaction}
     return render(request, 'transactions/complete.html', context)
 
@@ -478,6 +515,7 @@ class InternationaTransferView(CustomerTransactionCreateMixin):
                     self.request.user.account.balance -= amount
                     self.request.user.account.save(update_fields=['balance'])
                     self.request.session['pk'] = data.pk
+                    self.request.session['last_transaction_source'] = 'intern_transfer'
 
                     message = render_to_string('emails/transaction_complete_email.html',{
                     'name': self.request.user.get_full_name(),
